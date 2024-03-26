@@ -1,0 +1,40 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{url}
+\title{Teaching GenAI the game of Diamonds and creating strategies}
+\author{Anamitra Joshi}
+\date{March 2024}
+
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+'I have a card game that follows the given set of rules:
+It is played by 2-3 players. Each player gets one suit of cards and the diamonds are shuffled and set aside as the trump cards.
+In each round, a random card from the diamonds is picked and the players bid for it by raising any card of their own. Whoever raises the higher bid gets the diamond card and its points.
+If more than one player has the equal highest bid, the points are divided amongst them.
+Whoever gets the highest points in the end is the winner of the game.' is the prompt I gave to ChatGPT and Gemini to teach it the game of Diamonds. The point of this experiment is to understand how quickly and efficiently GenAI can grasp content that it doesn't know. Diamonds is a game we were asked to write code for during the summer bootcamp at IIIT Hyderabad. For this assignment, I experimented with ChatGPT and Gemini. I started with explaining what the game is about, clearing up all the errors in its understanding and then proceeding to asking for strategies and code.
+
+\section{Teaching GenAI the game}
+My first prompt to ChatGPT was the one mentioned in the introduction, it gave me a simple summary of whatever I said. I asked whether it understood the game and I received a positive response. I then asked if there was anything it did not understand, when it asked me points I had indeed missed out on covering while explaining such as whether the card values of the diamonds are the points or does it depend on something else. This instance seemed very interesting, GPT sounded like a people-pleasing student who is terrified of asking doubts themselves unless they are being asked to ask questions explicitly. Once this was all cleared up, it summarized the whole game correctly.\\
+\\
+I repeated the same first prompt to Gemini along with some additional points I had previously missed out on, Gemini's response also was a summary but it hallucinated, creating additional rules such as 'a player may or may not bid each round' and 'rounding down the points when divided amongst multiple players'. I corrected all of its assumptions after which it understood well and also offered to come up with some strategies to win this game.\\ \\
+One thing I intentionally did in both of these prompts was to not mention the term 'Diamonds' being the game's name as there is a possibility that there is another game on the internet with the same name the GenAI might confuse itself with.
+
+\section{Iterating upon strategy}
+ChatGPT was very disappointing in strategy making, it gave me very generic card game strategy like bluffing and assessing your opponents. I asked it to write code with a strategy. While the code used OOPS and was clean, the strategy in itself was bad if the code could be even considered a strategy. It was bidding with the greatest card it had in its hand irrespective of what the diamond card was and initially was also assuming that the opponent's card was visible despite being explicitly stated before. Even after correcting it, it kept iterating upon the same terrible strategy. \\
+\\
+Gemini on the other hand was very helpful with excellent strategies dividing the game into 3 parts: Early rounds, Mid rounds and Late rounds. Additionally it also gave some general strategies. When asked to write code, it gave me similar results it gave my peers who presented their screens in class. It used the strategy of calculating a threshold value that is given by the formula:\\
+ min\_bid\_value = (revealed\_diamond + 1) / (num\_players * (14 - round\_number))\\
+ It also considered which round the game is in forming multiple if-else conditions. Quite contrary to ChatGPT, the code was not clean with not enough functions but the strategy was satisfactory.
+
+ \section{Analysis and Conclusion}
+ This experiment was helpful in understanding the strengths and weaknesses in the two GenAI tools. It gave me a good insight on what points to mention first, what later and what never. It was also interesting to read Gemini's strategy. While I'm not sure whether it'll be useful, it was still intriguing and I might try using it while playing the game with my friends. To summarize, both of the tools understood the game properly and quickly. My overall experience was enhanced by using two tools instead of one as they balanced each other out in pros and cons.
+
+ \section{Transcripts}
+ ChatGPT: \url{https://chat.openai.com/share/2f677492-c676-4744-adba-510664854303} \\
+ Gemini: \url{https://g.co/gemini/share/bbc9e70d03b5}
+
+ \end{document}
+ 
